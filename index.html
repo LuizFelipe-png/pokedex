@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex | Portfólio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <form id="formBusca" class="busca">
+        <input
+          type="text"
+          id="inputBusca"
+          placeholder="Busque por nome ou número..."
+          required
+          autocomplete="off"
+        />
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <div id="mensagem" class="mensagem">Procurando...</div>
+
+      <article id="cartaoPokemon" class="cartao" hidden>
+        <header class="cartao-cabecalho">
+          <div>
+            <h1 id="nomePokemon">Nome</h1>
+            <span id="tiposPokemon" class="tipos"></span>
+          </div>
+          <span id="numeroPokemon" class="numero">#000</span>
+        </header>
+
+        <div class="imagem-container">
+          <div class="circulo-fundo"></div>
+          <img id="imagemPokemon" src="" alt="Imagem do Pokémon" />
+        </div>
+
+        <p id="descricaoPokemon" class="descricao">Descrição do pokémon.</p>
+
+        <div class="medidas">
+          <div class="medida-item">
+            <span class="medida-rotulo">Peso</span>
+            <span id="pesoPokemon" class="medida-valor">0 kg</span>
+          </div>
+          <div class="medida-item">
+            <span class="medida-rotulo">Altura</span>
+            <span id="alturaPokemon" class="medida-valor">0 m</span>
+          </div>
+        </div>
+
+        <div class="status-container">
+          <h3>Atributos Base</h3>
+          <div id="listaStatus" class="status-lista"></div>
+        </div>
+
+        <div class="botoes-acao">
+          <button id="btnShiny" class="btn-secundario" title="Versão Brilhante">
+            ✨ Shiny
+          </button>
+          <button id="btnSom" class="btn-secundario" title="Ouvir Som">
+            🔊 Som
+          </button>
+        </div>
+      </article>
+
+      <nav class="navegacao">
+        <button id="btnAnterior" class="btn-primario">◀ Anterior</button>
+        <button id="btnProximo" class="btn-primario">Próximo ▶</button>
+      </nav>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
