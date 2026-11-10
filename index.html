@@ -1,78 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex | Portfólio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <form id="formBusca" class="busca">
-        <input
-          type="text"
-          id="inputBusca"
-          placeholder="Busque por nome ou número..."
-          required
-          autocomplete="off"
-        />
-        <button type="submit" aria-label="Buscar">🔍</button>
-      </form>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-      <div id="mensagem" class="mensagem">Procurando...</div>
+    <header>
+        <h1>Pokédex</h1>
+        <p>Encontre e capture seus Pokémon!</p>
+    </header>
 
-      <article id="cartaoPokemon" class="cartao" hidden>
-        <header class="cartao-cabecalho">
-          <div>
-            <h1 id="nomePokemon">Nome</h1>
-            <span id="tiposPokemon" class="tipos"></span>
-          </div>
-          <span id="numeroPokemon" class="numero">#000</span>
-        </header>
+    <main>
+        <section class="busca">
+            <form id="formBusca">
+                <input
+                    type="text"
+                    id="inputBusca"
+                    placeholder="Digite o nome ou número do Pokémon"
+                    required>
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
 
-        <div class="imagem-container">
-          <div class="circulo-fundo"></div>
-          <img id="imagemPokemon" src="" alt="Imagem do Pokémon" />
-        </div>
+        <p id="mensagem"></p>
 
-        <p id="descricaoPokemon" class="descricao">Descrição do pokémon.</p>
+        <section id="cartaoPokemon" hidden>
+            <div class="pokemon">
+                <h2 id="nomePokemon"></h2>
+                <p id="numeroPokemon"></p>
 
-        <div class="medidas">
-          <div class="medida-item">
-            <span class="medida-rotulo">Peso</span>
-            <span id="pesoPokemon" class="medida-valor">0 kg</span>
-          </div>
-          <div class="medida-item">
-            <span class="medida-rotulo">Altura</span>
-            <span id="alturaPokemon" class="medida-valor">0 m</span>
-          </div>
-        </div>
+                <img id="imagemPokemon" src="" alt="Pokémon">
 
-        <div class="status-container">
-          <h3>Atributos Base</h3>
-          <div id="listaStatus" class="status-lista"></div>
-        </div>
+                <div id="tiposPokemon"></div>
 
-        <div class="botoes-acao">
-          <button id="btnShiny" class="btn-secundario" title="Versão Brilhante">
-            ✨ Shiny
-          </button>
-          <button id="btnSom" class="btn-secundario" title="Ouvir Som">
-            🔊 Som
-          </button>
-        </div>
-      </article>
+                <p id="descricaoPokemon"></p>
 
-      <nav class="navegacao">
-        <button id="btnAnterior" class="btn-primario">◀ Anterior</button>
-        <button id="btnProximo" class="btn-primario">Próximo ▶</button>
-      </nav>
+                <div class="informacoes">
+                    <p>Peso: <span id="pesoPokemon"></span></p>
+                    <p>Altura: <span id="alturaPokemon"></span></p>
+                </div>
+
+                <h3>Status</h3>
+                <div id="listaStatus"></div>
+
+                <div class="botoes">
+                    <button id="btnAnterior">Anterior</button>
+                    <button id="btnShiny">Shiny</button>
+                    <button id="botao-capturar">Capturar</button>
+                    <button id="btnProximo">Próximo</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="party">
+            <h2 id="titulo-party">Minha party (0/6)</h2>
+            <ul id="party"></ul>
+        </section>
+
+        <section class="professor">
+            <div class="titulo-professor">
+                <h2 id="titulo-carvalho">Com o Professor Carvalho (0)</h2>
+                <button id="btnExcluirTodos" type="button">
+                    Excluir todos
+                </button>
+            </div>
+
+            <p id="carvalho-vazio">
+                Nenhum Pokémon com o Professor Carvalho.
+            </p>
+
+            <ul id="carvalho"></ul>
+        </section>
     </main>
 
+    <dialog id="dialogo-troca">
+        <h2>Party cheia!</h2>
+        <p id="texto-troca"></p>
+
+        <ul id="opcoes-troca"></ul>
+
+        <button id="cancelar-captura" type="button">
+            Cancelar
+        </button>
+    </dialog>
+
     <script src="js/script.js"></script>
-  </body>
+</body>
 </html>

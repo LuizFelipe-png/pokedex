@@ -1,8 +1,3 @@
-:root {
-  --cor-tipo: #a8a878;
-  --cor-fundo: #f4f4f9;
-  --cor-texto: #333333;
-}
 
 * {
   margin: 0;
@@ -11,283 +6,357 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
   padding: 20px;
-  transition: background-color 0.5s ease;
 }
 
-.container {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+header {
+  background-color: #e63946;
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e63946;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c92d3a;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
 }
 
 .busca {
   display: flex;
   gap: 10px;
-  background: white;
-  padding: 8px;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+}
+
+.busca form {
+  display: flex;
+  width: 100%;
+  gap: 10px;
 }
 
 .busca input {
   flex: 1;
-  border: none;
-  background: transparent;
-  padding: 10px 20px;
-  font-family: inherit;
-  font-size: 15px;
-  outline: none;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.busca button {
-  background: var(--cor-tipo);
-  color: white;
-  border: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s, filter 0.2s;
-}
-
-.busca button:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-.mensagem {
+#mensagem {
   text-align: center;
-  font-weight: 500;
-  color: #666;
+  color: green;
+  margin: 15px 0;
+}
+
+#mensagem:empty {
   display: none;
 }
 
-.cartao {
-  background: white;
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
+#mensagem.alerta {
+  color: red;
 }
 
-.cartao::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 140px;
-  background: var(--cor-tipo);
-  opacity: 0.15;
-  z-index: 0;
-  transition: background-color 0.5s ease;
+#cartaoPokemon,
+.party,
+.professor {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.cartao-cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index: 1;
+.pokemon {
+  text-align: center;
 }
 
-.cartao-cabecalho h1 {
-  font-size: 26px;
+.pokemon h2 {
   text-transform: capitalize;
-  line-height: 1.2;
+  margin-bottom: 5px;
 }
 
-.numero {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--cor-tipo);
-  opacity: 0.8;
-}
-
-.tipos {
-  display: flex;
-  gap: 8px;
-  margin-top: 5px;
-}
-
-.tipo-badge {
-  background: var(--cor-tipo);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.imagem-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 220px;
-  margin: 10px 0;
-  z-index: 1;
-}
-
-.circulo-fundo {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: var(--cor-tipo);
-  opacity: 0.1;
-  transition: background-color 0.5s ease;
+#numeroPokemon {
+  color: #777;
 }
 
 #imagemPokemon {
   width: 200px;
   height: 200px;
   object-fit: contain;
-  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
-  z-index: 2;
-  transition: transform 0.3s ease;
+  margin: 15px;
 }
 
-#imagemPokemon:hover {
-  transform: scale(1.1) translateY(-10px);
-}
-
-.descricao {
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 20px;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.medidas {
+#tiposPokemon {
   display: flex;
-  justify-content: space-around;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 16px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px;
 }
 
-.medida-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.medida-rotulo {
+.tipo-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
   font-size: 12px;
-  color: #888;
-  font-weight: 500;
 }
 
-.medida-valor {
-  font-size: 15px;
-  font-weight: 600;
+#descricaoPokemon {
+  margin: 15px 0;
 }
 
-.status-container h3 {
-  font-size: 14px;
-  margin-bottom: 15px;
-  color: #444;
+.informacoes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 15px 0;
 }
 
-.status-linha {
+.informacoes p {
+  font-weight: bold;
+}
+
+#listaStatus {
+  max-width: 500px;
+  margin: 15px auto;
+}
+
+#listaStatus .status-linha {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
   font-size: 13px;
 }
 
 .status-nome {
-  width: 55px;
-  font-weight: 600;
-  color: #666;
+  width: 75px;
+  text-align: left;
 }
 
 .status-valor {
-  width: 35px;
-  font-weight: 600;
-  text-align: right;
-  margin-right: 15px;
+  width: 30px;
 }
 
 .status-barra {
   flex: 1;
-  height: 8px;
-  background: #eee;
-  border-radius: 10px;
-  overflow: hidden;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 .status-progresso {
   height: 100%;
-  background: var(--cor-tipo);
-  border-radius: 10px;
-  transition: width 0.6s ease, background-color 0.5s ease;
+  background-color: #e63946;
+  border-radius: 5px;
 }
 
-.botoes-acao {
+.botoes {
   display: flex;
   gap: 10px;
   margin-top: 20px;
 }
 
-.btn-secundario {
+.botoes button {
   flex: 1;
-  background: #f0f0f5;
-  color: #333;
-  border: none;
-  padding: 12px;
-  border-radius: 12px;
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
 }
 
-.btn-secundario:hover {
-  background: #e4e4e9;
+.party h2,
+.professor h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
-.navegacao {
+#party {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+#party li {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  font-size: 13px;
+  text-transform: capitalize;
 }
 
-.btn-primario {
-  flex: 1;
-  background: var(--cor-tipo);
-  color: white;
+#party img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+#party button {
+  width: 100%;
+  font-size: 11px;
+}
+
+#party .vazio {
+  color: #999;
+  min-height: 100px;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  background-color: white;
+}
+
+.titulo-professor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.titulo-professor h2 {
+  margin-bottom: 0;
+}
+
+#btnExcluirTodos {
+  background-color: #b71c1c;
+}
+
+#btnExcluirTodos:hover {
+  background-color: #8e0000;
+}
+
+#carvalho {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#carvalho li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+#carvalho img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+#carvalho button {
+  font-size: 11px;
+}
+
+#carvalho-vazio {
+  color: #777;
+  font-size: 14px;
+}
+
+dialog {
+  width: 90%;
+  max-width: 450px;
+  max-height: 90vh;
+  margin: auto;
+  padding: 20px;
   border: none;
-  padding: 14px;
-  border-radius: 16px;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: filter 0.2s, background-color 0.5s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.btn-primario:hover {
-  filter: brightness(1.1);
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.btn-primario:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+dialog h2 {
+  margin-bottom: 10px;
+}
+
+dialog p {
+  margin-bottom: 15px;
+}
+
+#opcoes-troca {
+  list-style: none;
+}
+
+#opcoes-troca li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+#opcoes-troca img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+#cancelar-captura {
+  width: 100%;
+  margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+  body {
+      padding: 10px;
+  }
+
+  #party {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .botoes {
+      flex-wrap: wrap;
+  }
+
+  .botoes button {
+      min-width: 40%;
+  }
+
+  .titulo-professor {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .informacoes {
+      gap: 15px;
+  }
 }
